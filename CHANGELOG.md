@@ -1,167 +1,133 @@
-## CHANGE LOG
+#Changelog
+
+## 7.2.5 (2017-02-20)
+### 增加
+* 批量修改mimeType的操作
+* 批量操作的结果内容丰富
+* 开放Zone.Builder用于私有环境自定义域名
+* 更新Fetch的结果，使之内容更丰富
+* 开放底层HTTP库的并发链接数量和连接池数量管理
+* 简单的实体类，使之成员都成为public
+* 添加deleteAfterDays接口用来设置文件生存时间
 
-### v6.1.5
+### 修正
+* 代码的格式化风格
 
-2014-07-04 [#128](https://github.com/qiniu/java-sdk/pull/128)
+## 7.2.4 (2017-02-07)
+### 增加
+* 北美机房的上传，转码测试用例
+* 持久化处理的结果查询方法
 
-- [#127] 普通上传前计算文件大小
+### 修正
+* 默认不设置autoZone的情况下，自动判断zone
+* zone和autoZone的代码结构优化
 
+## 7.2.3 (2017-01-11)
+### 增加
+* CDN url 预取
+* 获取带宽、流量数据
+* 获取日志列表
+* 时间戳防盗链签名
 
-### v6.1.5
+### 修正
+* ETag 大文件块计算整数溢出问题
+* autoZone 不支持rs、rsf等问题
+* 不能设置使用 https 的问题
 
-2014-06-10 [#121](https://github.com/qiniu/java-sdk/pull/121)
+## 7.2.2 (2016-11-04)
+### 增加
+* stream 方式上传
 
-- [#120] 标准化 user agent
-- [#118] 重构单元测试
-- [#117] 整理未连接的error code
-- [#116] 增加pipeline
-- [#112] 增加一个 put 方法
+## 7.2.1 (2016-11-03)
+### 修正
+* streaming publish url 过期时间单位问题
 
+## 7.2.0 (2016-11-02)
+### 增加
+* 为多存储区 增加 autozone, zone2
+* 整合 cdn 刷新
+* 整合 streaming 服务端SDK
 
-### v6.1.4
+## 7.1.3 (2016-09-02)
+### 增加
+* 下载方法
+* 支持x:foo变量
+* batch 增加force
+* host first
 
-2014-05-30 [#115](https://github.com/qiniu/java-sdk/pull/115)
+## 7.1.2 (2016-07-14)
+### 增加
+* 内部dns 解析支持
+* proxy 支持
+* add String[] commonPrefixes in FileListing 
 
-- [#111] 更新文档
-- [#113] 更新config, up.qbox.me -> up.qiniu.com
-- [#114] 移除 transform
+## 7.1.1 (2016-06-27)
+### 修正
+* 断点上传,skip 已上传部分
 
+## 7.1.0 (2016-04-27)
+### 增加
+* 升级到okhttp3, 升级次版本号。
 
-### v6.1.3
+## 7.0.9 (2016-04-22)
+### 增加
+* 强制copy或者move
 
-2014-04-28 [#109](https://github.com/qiniu/java-sdk/pull/109)
+## 7.0.8 (2016-01-05)
 
-- [#101] [#102] 用户自定义参数
-- [#103] 分片上传，断点续传
-- [#106] bugfix: 普通流上传，key为空对象导致错误
-- [#107] bugfix: 指明为utf8字符集
-- [#108] 限定上传文件类型
+### 修正
+* 添加写超时时间，避免okhttp 2.7 上传大文件失败
 
-### v6.1.2
+## 7.0.7 (2015-11-13)
 
-2014-2-10 [#98](https://github.com/qiniu/java-sdk/pull/98)
+### 修正
+* invalid multipart format: multipart: message too large
 
-- Add transform and fopTimeout Put Policy
+## 7.0.6 (2015-10-30)
 
-### v6.1.0
+### 修正
+* 断点续上传 读取本地持久化记录偏移问题
+* form 及 断点上传 fname 改为 本地文件名
 
-2014-1-13 [#93](https://github.com/qiniu/java-sdk/pull/93)
+## 7.0.5 (2015-10-08)
 
-- bugfix: PutExtra.mimeType 不生效问题
-- PutPolicy 补充字段
+### 修正
+* 调大连接池，提高并发性能
+* 超时单位设置
 
-### v6.0.7
+### 增加
+* 增加data的异步上传
 
-2013-11-7 [#85](https://github.com/qiniu/java-sdk/pull/85)
+## 7.0.4.2 (2015-09-22)
 
-- PutPolicy增加持久化字段
+### 修正
+* 跟据reqid 判断服务器是否为七牛的
 
-### v6.0.6
+## 7.0.4.1 (2015-08-27)
 
-2013-11-5 [#84](https://github.com/qiniu/java-sdk/pull/84)
+### 修正
+* okhttp 2.4 兼容问题
 
-- 修复PutPolicy生成Token时，Expires改变的BUG
+## 7.0.4 (2015-06-25)
 
-### v6.0.5
+### 变更
+* 多zone 支持
 
-2013-10-08 issue [#82](https://github.com/qiniu/java-sdk/pull/82)
+## 7.0.3 (2015-05-04)
 
-- 增加私有资源fop的接口，包括exif,imageInfo,ImageView
+### 修正
+* post在无body情况下变成了get。
 
-### v6.0.4
+## 7.0.2 (2015-04-15)
 
-2013-09-02 issue [#78](https://github.com/qiniu/java-sdk/pull/78)
+### 增加
+* fetch 返回key
+* 增加上传断点记录持久化
 
-- 添加ListPrefix
-- hot fix,增加EndUser字段至PutPolicy的JSON字符串中
+## 7.0.0 (2015-02-03)
 
-### v6.0.3
-
-2013-08-5 issue [#76](https://github.com/qiniu/java-sdk/pull/76)
-
-- Bug fix，编码强制UTF-8修复
-
-### v6.0.1
-
-2013-08-5 issue [#74](https://github.com/qiniu/java-sdk/pull/74)
-
-- Bug fix，增加PutPolicy类的 callbackBody字段到PutPolicy的Json格式中
-
-
-### v6.0.0
-
-2013-07-01 issue [#64](https://github.com/qiniu/java-sdk/pull/64)
-
-- 遵循 [sdkspec v6.0.2](https://github.com/qiniu/sdkspec/tree/v6.0.2)
-    - 暂不支持断点续传
-
-
-### v3.0.0
-
-2013-06-05 issue [#61](https://github.com/qiniu/java-sdk/pull/61)
-
-- PutPolicy: add member - escape, asyncOps, returnBody
-
-
-### v2.5.1
-
-2013-03-25 issue [#54](https://github.com/qiniu/java-sdk/pull/54)
-
-- 修正 HttpClient 类的不正确使用：补漏。
-
-
-### v2.5.0
-
-2013-03-23 issue [#46](https://github.com/qiniu/java-sdk/pull/46)
-
-- 修正帮助文档关于 AccessKey/SecretKey 配置描述的问题。
-- 修正 HttpClient 类的不正确使用。
-
-
-### v2.4.2
-
-2013-03-11 issue [#39](https://github.com/qiniu/java-sdk/pull/39)
-
-- RSService 类增加批量操作方法：`batchStat`, `batchCopy`, `batchMove`, `batchDelete`。
-- RSService 类增加文件操作方法：`copy`, `move`, 以及`buckets`。
-- 修复断点续传 `mkblk` 返回的 `host` 字段未持久化的问题。
-- 增加以 `downloadtoken` 方式下载私有资源, 并将生成 `token` 的方式做成统一的接口。
-- 增加 `GetRet` 的 `expiry` 字段，基于此用户可以控制 `url` 有效期。
-
-
-### v2.4.1
-
-2013-01-22 issue [#29](https://github.com/qiniu/java-sdk/pull/29)
-
-- 修复 `Fileop` 相关 `api` 的bug。
-
-
-### v2.4.0
-
-2013-01-14 issue [#27](https://github.com/qiniu/java-sdk/pull/27)
-
-- 增加创建 `bucket`对应的方法以及 `Fileop` 相关的类，包括 `ImageInfo`,`ImageExif`,`ImageMogrify`,`ImageView`。
-- 增加 `travis` 支持。
-- 修复由于 `host` 作用域过大，导致线程安全问题的 `bug`。
-- 增加以 `uptoken` 的方式上传文件。
-
-
-### v2.3.1
-
-- 回滚到 `v2.2.6`
-
-### v2.3.0
-
-- 合并新提交的 `sdk`
-
-### v2.2.6
-
-- 增加 `encodeParams` 支持
-
-### v2.2.5
-
-- 修复因 `base64` 编码而导致和 `android` 不兼容的问题
-
-### v2.2.4
-
-- 为 `JAVA-SDK` 增加 `Maven` 支持
+### 增加
+* 简化上传接口
+* 自动选择断点续上传还是直传
+* 重构代码，接口和内部结构更清晰
+* 文件列表支持目录形式
